@@ -10,6 +10,7 @@ class Cards {
     this.#getElement();
 
     this.#createCards(number);
+    this.shuffle();
   }
 
   #validate(number) {
@@ -28,6 +29,10 @@ class Cards {
     cardList.push(new Card(true, this));
 
     this.#list = cardList;
+  }
+
+  shuffle() {
+    this.#list.sort(() => Math.random() - 0.5);
   }
 
   render() {
