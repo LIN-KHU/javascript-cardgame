@@ -1,4 +1,5 @@
 import Card from './Card';
+import { $ } from './util/dom';
 
 class Cards {
   #$node;
@@ -18,7 +19,7 @@ class Cards {
   }
 
   #getElement() {
-    this.#$node = document.querySelector('#cards');
+    this.#$node = $('#cards');
   }
 
   #createCards(number) {
