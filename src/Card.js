@@ -8,6 +8,7 @@ class Card {
     this.#cards = cards;
 
     this.#createNode();
+    this.#addClickEvent();
   }
 
   #createNode() {
@@ -18,8 +19,15 @@ class Card {
     this.#$node = $node;
   }
 
-  // 필드 값은
-  constructor() {}
+  #selectCard() {
+    this.#cards.showResult(this.#isWin);
+  }
+
+  #addClickEvent() {
+    this.#$node.addEventListener('click', () => {
+      this.#selectCard();
+    });
+  }
 
   render($parent) {
     if ($parent) {

@@ -35,6 +35,10 @@ class Cards {
     this.#list.sort(() => Math.random() - 0.5);
   }
 
+  showResult(isWin) {
+    this.#$node.innerText = isWin ? '당첨입니다' : '꽝입니다.';
+  }
+
   render() {
     this.#list.forEach((card) => {
       card.render(this.#$node);
