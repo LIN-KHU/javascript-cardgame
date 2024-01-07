@@ -1,4 +1,6 @@
-import '../index.css';
+import "../index.css";
+import GameManager from "./GameManager";
 
-// 실제 실행 코드 작성
-// ex)cardGame.start()
+const gameManager = new GameManager(3);
+
+gameManager.start();
