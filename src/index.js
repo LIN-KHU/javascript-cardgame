@@ -1,19 +1,5 @@
 import "../index.css";
-
-class Card {
-  constructor() {
-    let card = document.createElement("button"); //
-    card.classList.add("card"); //
-    card.textContent = "카드입니다";
-
-    this.card = card;
-    this.render();
-  }
-
-  render() {
-    cardsContainer.appendChild(this.card); //부모 노드와 자식 노드 연결
-  }
-}
+import Card from "./Card.js";
 
 let cardsContainer = document.querySelector("#cards");
 
