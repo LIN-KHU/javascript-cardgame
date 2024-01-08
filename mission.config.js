@@ -8,7 +8,7 @@ module.exports = {
     port: 3000,
     hot: true,
   },
-  entry: './src/index.js',
+  entry: './src/index.js', //여기서 가져옴. 
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),

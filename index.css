@@ -1,4 +1,4 @@
-.card {
+.card { /*Card.js에서 사용*/
   width: 80px;
   height: 100px;
   border-radius: 3px;

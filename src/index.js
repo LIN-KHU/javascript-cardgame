@@ -1,4 +1,7 @@
 import '../index.css';
+import Shuffle from './Shuffle';
 
-// 실제 실행 코드 작성
-// ex)cardGame.start()
+const cardCount = 3;
+const shuffle = new Shuffle(cardCount);
+shuffle.shuffleCards();
+shuffle.displayCards();
