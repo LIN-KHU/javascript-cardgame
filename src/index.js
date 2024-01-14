@@ -1,61 +1,93 @@
-import '../index.css';
+import "../index.css";
 
 // 실제 실행 코드 작성
 // ex)cardGame.start()
 
 class Card {
-  constructor() {
+  result;
+  cardList;
+
+  constructor(result, cardList) {
+    this.result = result;
+    this.cardList = cardList;
+
     this.createCard();
     this.addEventHandler();
     this.addCard();
   }
 
- createCard(){
-  this.element = document.createElement('button');
-  this.element.className = 'card';
-  this.element.innerText = '카드입니다.';
-}
-
- addEventHandler(){
-  this.element.addEventListener('click', this.handleClick.bind(this));
- }
-
-addCard(){
-  const cards = document.querySelector('#cards');
-  cards.appendChild(this.element);
-}
-
-
-cardShuffle(){
-  const card1 = new Card();
-  const card2 = new Card();
-  const card3 = new Card();
-
-  card1.element.dataset.result = 'loser';
-  card2.element.dataset.result = 'winner';
-  card3.element.dataset.result = 'winner';
-
-
-  const cardList = [card1, card2, card3]
-  cardList.sort(() => Math.random() - 0.5);
-
-  const cardsContainer = document.querySelector('#cards');
-  cardsContainer.innerHTML = ''; 
-
-  cardList.forEach(card => card.addCard());
-}
-
-
-handleClick() {
-  if (this.element.dataset.result == 'loser'){
-      this.element.innerText = '꽝 입니다.';
+  createCard() {
+    this.element = document.createElement("button");
+    this.element.className = "card";
+    this.element.innerText = "";
   }
-  else{
-    this.element.innerText = '당첨 입니다.';
-  }    
- }
+  /// 아마 여기 부분을 나중에 밑에 클래스에 넣어야 한다.
+
+  addEventHandler() {
+    this.element.addEventListener("click", this.handleClick.bind(this));
+  }
+
+  addCard() {
+    const cards = document.querySelector("#cards");
+    cards.appendChild(this.element);
+  }
+
+  handleClick() {
+    if (this.result == "loser") {
+      this.element.innerText = "꽝";
+      this.cardList.decreaseChances();
+    } else {
+      this.element.innerText = "당첨";
+      this.cardList.restart();
+    }
+  }
 }
 
+class CardList {
+  allCards;
+  chanceElement;
+  count;
 
-const cardGame = new Card();
-cardGame.cardShuffle();
+  constructor() {
+    this.chanceElement = document.getElementById("chance");
+    this.count = 2;
+
+    const card1 = new Card("loser", this);
+    const card2 = new Card("loser", this);
+    const card4 = new Card("winner", this);
+    const card3 = new Card("loser", this);
+
+    const cardList = [card1, card2, card3, card4];
+    this.allCard = cardList;
+
+    this.cardShuffle();
+
+    this.restartElement = document.getElementById("restart");
+    this.restartElement.style.display = "none";
+  }
+
+  restart() {
+    this.restartElement.innerText = "재시작";
+    this.restartElement.style.display = "block";
+  }
+
+  decreaseChances() {
+    this.count = this.count - 1;
+    this.chanceElement.innerText = `남은 기회: ${this.count}`;
+
+    if (this.count === 0) {
+      this.restart();
+    }
+  }
+
+  cardShuffle() {
+    this.allCard.sort(() => Math.random() - 0.5);
+
+    const cardsContainer = document.querySelector("#cards");
+    cardsContainer.innerHTML = "";
+
+    this.allCard.forEach((card) => card.addCard());
+  }
+}
+
+const cardGame = new CardList();

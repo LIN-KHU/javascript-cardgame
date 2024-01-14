@@ -1,10 +1,87 @@
+/* 애가 클래스 */
 .card {
   width: 80px;
   height: 100px;
   border-radius: 3px;
+  background: #F9A825;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color : white
 }
 
 #cards {
   display: flex;
   gap: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  
 }
+
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24.2px;
+  margin: 0;
+  top: 97px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+#container {
+  position: absolute;
+  width: 410px;
+  height: 160px;
+  top: 138px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background: #FDD853;
+}
+
+
+#app {
+  text-align: center;
+}
+
+#chance {
+  position: absolute;
+  width: 82px;
+  height: 19px;
+  top: 310px;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+#restart {
+  width: 140px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background: #FFFFFFDB;
+
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 50px;
+  letter-spacing: 0em;
+  text-align: center;
+  display: none;
+}
+
+
