@@ -49,24 +49,40 @@ top: 138px;
 background: #FDD853;
 border-radius: 10px;
 
+}
+
+.restart{
+
+position: absolute;
+width: 140px;
+height: 48px;
+left: 560px;
+top: 200px;
+
+background: rgba(255, 255, 255, 0.86);
+border-radius: 10px;
+
+
 
 }
 
-#title2{
+.information{
 
+white-space: nowrap;
 position: absolute;
-width: 152px;
-height: 24px;
-left: 561px;
-top: 410px;
+width: 82px;
+height: 19px;
+left: 599px;
+top: 310px;
 
 font-family: 'Inter';
 font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 24px;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
 
 color: #000000;
+
 
 
 
