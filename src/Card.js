@@ -14,4 +14,21 @@ class Card {
   }
 }
 
-export default Card;
+class CardManager {}
+
+class GameManager {
+  constructor() {
+    // 게임 매니저 초기화
+    this.chance = 2;
+  }
+
+  startGame() {}
+
+  continueGame() {}
+
+  endGame() {}
+
+  // 다른 메서드들 추가
+}
+
+export { Card, CardManager, GameManager };
