@@ -21,7 +21,6 @@ class Card {
     this.element.className = "card";
     this.element.innerText = "";
   }
-  /// 아마 여기 부분을 나중에 밑에 클래스에 넣어야 한다.
 
   addEventHandler() {
     this.element.addEventListener("click", this.handleClick.bind(this));
@@ -67,8 +66,29 @@ class CardList {
   }
 
   restart() {
-    this.restartElement.innerText = "재시작";
-    this.restartElement.style.display = "block";
+    // 기존 코드에서는 재시작 버튼을 클릭할 때만 초기화 로직이 실행되도록 설정되어 있었습니다.
+    if (
+      this.count === 0 ||
+      this.allCard.some((card) => card.element.innerText == "당첨")
+    ) {
+      this.restartElement.innerText = "재시작";
+      this.restartElement.style.display = "block";
+
+      // 재시작 버튼 클릭 시 초기화
+      this.restartElement.addEventListener("click", () => {
+        this.restartElement.style.display = "none"; // 재시작 버튼 감춤
+        this.count = 2; // 기회 초기화
+        this.chanceElement.innerText = `남은 기회: ${this.count}`;
+        this.cardShuffle(); // 카드 섞기
+
+        this.allCard.forEach((card) => {
+          card.element.innerText = "";
+        });
+
+        // Hide restart button again
+        this.restartElement.style.display = "none";
+      });
+    }
   }
 
   decreaseChances() {
