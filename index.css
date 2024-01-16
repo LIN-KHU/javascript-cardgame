@@ -28,6 +28,8 @@ width: 365px;
 height: 100px;
 left: 458px;
 top: 165px;
+align-items: center; 
+justify-content: center;
 
 }
 
@@ -57,6 +59,7 @@ height: 160px;
 left: 435px;
 top: 138px;
 
+
 background: #FDD853;
 border-radius: 10px;
 
@@ -83,8 +86,10 @@ white-space: nowrap;
 position: absolute;
 width: 82px;
 height: 19px;
-left: 599px;
-top: 310px;
+
+top: 150px;
+justify-content: center;
+
 
 font-family: 'Inter';
 font-style: normal;
