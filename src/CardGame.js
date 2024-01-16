@@ -12,7 +12,7 @@ class CardGame {
 
   createCards(game) {
     const cards = [];
-    const winnerLocation = Math.floor(Math.random() * 3);   
+    const winnerLocation = Math.floor(Math.random() * 4);   
 
     for (let i = 0; i < 4; i++) {
       const isWinner = i === winnerLocation;
@@ -31,7 +31,7 @@ class CardGame {
   ifWinner() {
     this.isGameOver = true;
     this.checkResult();
-  }
+    }
 
   ifLoser() {
     if (this.remainAttempts > 0) {
@@ -63,7 +63,7 @@ class CardGame {
     this.resultContainer.innerHTML = '';
     this.remainingAttempts = 2;
     this.cards.forEach((card) => {
-      card.element.removeEventListener('click', card.handleCardClick);
+      card.element.removeEventListener('click', card.handleCardClick.bind(card));
     });
     this.cardContainer.innerHTML = '';
     this.cards = this.createCards();
@@ -71,11 +71,13 @@ class CardGame {
   }
 
   start() {
-    this.cards.forEach((card) => {
+    if (!this.isGameOver) {
+      this.cards.forEach((card) => {
         card.element.addEventListener('click', () => {
-          card.handleCardClick(this.resultContainer);
+          card.handleCardClick();
         });
       });
+    }
   }
 }
 

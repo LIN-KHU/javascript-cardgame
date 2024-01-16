@@ -16,6 +16,10 @@ class Card {
 
   handleCardClick() {
 
+    if (this.game.isGameOver || this.isFlipped) {
+      return;
+    }
+
     const resultMessage = document.createElement('p');
     resultMessage.textContent = this.isWinner ? '당첨' : '꽝';
     this.resultTextElement.innerHTML = '';
@@ -26,6 +30,8 @@ class Card {
     } else {
       this.game.ifLoser();
     }
+
+    this.isFlipped = true;
   }
 }
 
